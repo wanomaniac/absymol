@@ -1,0 +1,12 @@
+configurations.configureEach {
+    resolutionStrategy {
+        cacheChangingModulesFor 0, 'seconds'  // always refresh
+        cacheDynamicVersionsFor 0, 'seconds'  // optional
+    }
+}
+
+apply from: file("AutoModLoaderVersion.gradle")
+
+tasks.withType(Javadoc).configureEach {
+    enabled = false
+}

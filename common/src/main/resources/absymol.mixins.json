@@ -1,0 +1,36 @@
+{
+  "required": true,
+  "package": "com.wano.abysmol.mixin",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "ServerLogic.SpawnTime",
+    "Graphics.ARGBMixin",
+    "Graphics.ChannelMixin",
+    "Graphics.CubeMapTextureMixin",
+    "Graphics.GlyphPipelineFixMixin",
+    "Graphics.GuiGraphicsMixin",
+    "Graphics.NativeImageMixin",
+    "Graphics.NormalLogoTexture",
+    "Graphics.PreparedTextBuilderMixin",
+    "Graphics.Std140BuilderMixin",
+    "MobLogic.SunlightEnhancements.LivingEntitySolarEnhancementsMixin",
+    "MobLogic.SunlightEnhancements.MobInjectionMixin",
+    "MobLogic.SunlightEnhancements.MonsterLogicMixin",
+    "Graphics.GuiMixin",
+    "Graphics.LoadingOverlayMixin",
+    "Graphics.RecipeToastMixin",
+    "Graphics.RenderPipelinesAccessor",
+    "MobLogic.SunlightEnhancements.Renderer.LivingEntityRenderStateSolarMixin",
+    "MobLogic.SunlightEnhancements.Renderer.SolarEnhancementInitalizer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "priority": -1,
+  "client": [
+
+  ]
+}
