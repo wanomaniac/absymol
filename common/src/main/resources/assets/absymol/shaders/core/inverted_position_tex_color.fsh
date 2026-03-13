@@ -18,7 +18,7 @@ out vec4 fragColor;
 
 void main() {
     // Invert vertex color
-    vec3 vertexColorInvRGB = vec3(1.0) - vertexColor.rgb;
+    vec3 vertexColorInvRGB = vertexColor.rgb;
     vec4 vertexColorInvRGBA = vec4(vertexColorInvRGB, vertexColor.a);
     // Invert texture color
     vec4 textureSampleRGBA = texture(Sampler0, texCoord0);

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.wano.abysmol.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+          "MobLogic.SunlightEnhancements.LivingEntitySolarEnhancementsMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

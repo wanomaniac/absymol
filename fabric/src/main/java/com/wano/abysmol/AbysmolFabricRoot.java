@@ -12,7 +12,6 @@ public class AbysmolFabricRoot implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        AbsymolDefinitions.initalizeAbsymol();
-
+        AbsymolDefinitions.initalizeAbsymolAtMain();
 	}
 }

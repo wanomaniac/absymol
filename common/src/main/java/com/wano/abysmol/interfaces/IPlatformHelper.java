@@ -1,5 +1,7 @@
 package com.wano.abysmol.interfaces;
 
+import java.io.InputStream;
+
 public interface IPlatformHelper {
     /**
      * Gets the name of the current platform
@@ -16,6 +18,8 @@ public interface IPlatformHelper {
      * @return True if in a development environment, false otherwise.
      */
     boolean isDevelopmentEnvironment();
+
+    public InputStream loadModResource(String pathInResources);
 
     /**
      * Gets the name of the environment type as a string.

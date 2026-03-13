@@ -12,14 +12,15 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "com.wano.absymol.AbysmolFabricRoot"
+          "com.wano.abysmol.AbysmolFabricRoot"
 		],
       "preLaunch": [
-        "com.wano.absymol.AbysmolFabricPrelaunch"
+        "com.wano.abysmol.AbysmolFabricPrelaunch"
       ]
 	},
   "mixins": [
-    "${mod_id}.mixins.json"
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
