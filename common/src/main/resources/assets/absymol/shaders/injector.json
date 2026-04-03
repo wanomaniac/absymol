@@ -10,6 +10,7 @@
     "core/entity": "core/inverted_entity"
   },
   "fragment": {
+    "core/rendertype_item_entity_translucent_cull": "core/inverted_item",
     "core/block": "core/inverted_block_lighting",
     "core/terrain": "core/inverted_terrain_lighting",
     "core/lightmap": "core/inverted_lightmap",
