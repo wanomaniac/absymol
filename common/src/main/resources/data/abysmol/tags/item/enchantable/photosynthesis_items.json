@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#minecraft:enchantable/armor",
+    "#minecraft:enchantable/weapon",
+    "#minecraft:enchantable/mining",
+    "#abysmol:horse_armor"
+  ]
+}

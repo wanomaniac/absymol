@@ -1,0 +1,30 @@
+{
+  "global": {
+    "vertex": {
+      "core/block": "core/inverted_block_lighting",
+      "core/terrain": "core/inverted_terrain_lighting",
+      "core/lightmap": "core/inverted_lighting",
+      "core/rendertype_item_entity_translucent_cull": "core/inverted_item",
+      "core/entity": "core/inverted_entity",
+      "core/rendertype_translucent_moving_block": "core/inverted_moving_block",
+      "core/rendertype_text": "core/inverted_rendertype_text"
+    },
+    "fragment": {
+      "core/rendertype_item_entity_translucent_cull": "core/inverted_item",
+      "core/block": "core/inverted_block_lighting",
+      "core/terrain": "core/inverted_terrain_lighting",
+      "core/lightmap": "core/inverted_lightmap",
+      "core/entity": "core/inverted_entity",
+      "core/rendertype_text": "core/inverted_rendertype_text",
+      "core/rendertype_text_background": "core/inverted_rendertype_text_background",
+      "core/rendertype_text_background_see_through": "core/inverted_rendertype_text_background_see_through",
+      "core/rendertype_text_background_intensity": "core/inverted_rendertype_text_background_intensity",
+      "core/rendertype_text_background_intensity_see_through": "core/inverted_text_background_intensity_see_through"
+    }
+  },
+  "locations": {
+    "pipeline/vignette": {
+      "fragment": "core/inverted_position_tex_color"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "anvil_cost": 10,
+  "description": {
+    "translate": "enchantment.abysmol.photosynthesis"
+  },
+  "supported_items": "#abysmol:enchantable/photosynthesis_items",
+  "slots": [
+    "mainhand",
+    "offhand",
+    "head",
+    "chest",
+    "legs",
+    "feet"
+  ],
+  "weight": 10,
+  "max_level": 5,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 11
+  },
+  "max_cost": {
+    "base": 12,
+    "per_level_above_first": 11
+  },
+  "effects": {}
+}

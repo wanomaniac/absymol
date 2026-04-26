@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_book": {
+      "conditions": {
+        "items": [
+          {
+            "items": "abysmol:hymn_of_aten"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "abysmol:bookshelf_of_hymns"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_book"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:bookshelf"
+    ]
+  }
+}

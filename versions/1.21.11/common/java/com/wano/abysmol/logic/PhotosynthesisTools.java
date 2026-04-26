@@ -1,14 +1,11 @@
 package com.wano.abysmol.logic;
 
-import com.wano.abysmol.AbsymolEnchantments;
-import com.wano.abysmol.mixinAccessors.SolarEnhancementsAccessor;
+import com.wano.abysmol.AbysmolEnchantments;
+import com.wano.abysmol.mixinAccessors.PhotosynthesisAccessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.attribute.EnvironmentAttributes;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -19,7 +16,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 public class PhotosynthesisTools {
     public static int getMaxSolarPotential(LivingEntity self) {
         var enchantRegistry = self.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        var photoEnchant = enchantRegistry.get(AbsymolEnchantments.PHOTOSYNTHESIS);
+        var photoEnchant = enchantRegistry.get(AbysmolEnchantments.PHOTOSYNTHESIS);
 
         if (photoEnchant.isPresent()) {
             int maxPerPiece = photoEnchant.get().value().getMaxLevel();
@@ -35,20 +32,18 @@ public class PhotosynthesisTools {
         int baseLevel = 0;
         int totalEnchantLevel = 0;
         var enchantRegistry = self.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        var photoEnchant = enchantRegistry.get(AbsymolEnchantments.PHOTOSYNTHESIS);
+        var photoEnchant = enchantRegistry.get(AbysmolEnchantments.PHOTOSYNTHESIS);
         if (photoEnchant.isPresent()) {
             var enchantmentHolder = photoEnchant.get();
-
-            // 1. Define the specific slots you care about
             EquipmentSlot[] targetSlots = {
                     EquipmentSlot.FEET,
                     EquipmentSlot.LEGS,
                     EquipmentSlot.CHEST,
                     EquipmentSlot.HEAD,
-                    EquipmentSlot.MAINHAND
+                    EquipmentSlot.MAINHAND,
+                    EquipmentSlot.BODY //
             };
 
-            // 2. Loop through only those slots
             for (EquipmentSlot slot : targetSlots) {
                 ItemStack stack = self.getItemBySlot(slot);
                 if (!stack.isEmpty()) {
@@ -56,6 +51,7 @@ public class PhotosynthesisTools {
                 }
             }
         }
+
 
         int totalSolarLevel = baseLevel + totalEnchantLevel;
         if(self instanceof Mob && totalSolarLevel == 0) totalSolarLevel = 2;
@@ -66,27 +62,43 @@ public class PhotosynthesisTools {
         if(self.level().isClientSide()) return 0;
 
         int baseLevel = 0;
-        int enchantLevel = 0;
-
+        int totalEnchantLevel = 0;
         var enchantRegistry = self.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        var photoEnchant = enchantRegistry.get(AbsymolEnchantments.PHOTOSYNTHESIS);
+        var photoEnchant = enchantRegistry.get(AbysmolEnchantments.PHOTOSYNTHESIS);
         if (photoEnchant.isPresent()) {
-            enchantLevel = EnchantmentHelper.getEnchantmentLevel(photoEnchant.get(), self);
+            var enchantmentHolder = photoEnchant.get();
+            EquipmentSlot[] targetSlots = {
+                    EquipmentSlot.FEET,
+                    EquipmentSlot.LEGS,
+                    EquipmentSlot.CHEST,
+                    EquipmentSlot.HEAD,
+                    EquipmentSlot.MAINHAND,
+                    EquipmentSlot.BODY //
+            };
+
+            for (EquipmentSlot slot : targetSlots) {
+                ItemStack stack = self.getItemBySlot(slot);
+                if (!stack.isEmpty()) {
+                    totalEnchantLevel += EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, stack);
+                }
+            }
         }
 
-        int totalSolarLevel = baseLevel + enchantLevel;
+
+        int totalSolarLevel = baseLevel + totalEnchantLevel;
         return totalSolarLevel;
     }
 
     public static int getPhotosynthesisLevel4Client(LivingEntity self){
-        return ((SolarEnhancementsAccessor)self).abysmol$solarEnhancementsLevel();
+        return ((PhotosynthesisAccessor)self).abysmol$solarEnhancementsLevel();
     }
 
     public static boolean isEntityPhotosynthesized4Client(LivingEntity self) {
-        return ((SolarEnhancementsAccessor)self).abysmol$solarEnhancements();
+        return ((PhotosynthesisAccessor)self).abysmol$solarEnhancements();
     }
 
     public static boolean isEntityPhotosynthesized(LivingEntity self) {
+        if (self.isSpectator()) return false; // bug - spectators have photosynthesis abilities, not allowed.
         // 1. Check if it's day (Only if this is a SUN-based mechanic)
         if (self.level().isDarkOutside()) return false;
 
@@ -94,10 +106,9 @@ public class PhotosynthesisTools {
         float brightness = self.getLightLevelDependentMagicValue();
         if (brightness <= 0.5F) return false;
 
-        // 3. Environment/Monster Burn Check
-        // Pro-tip: Move this specific check to a cached boolean if it crashes!
-        boolean burnsInSun = (self instanceof Player) ||
-                (self.getType().is(EntityTypeTags.BURN_IN_DAYLIGHT)) && self.level().environmentAttributes().getValue(EnvironmentAttributes.MONSTERS_BURN, self.position()) || getPhotosynthesisLevel4ServerNoMobEnhancement(self) > 0;
+
+        boolean burnsInSun = (self instanceof Player) || getPhotosynthesisLevel4ServerNoMobEnhancement(self) > 0 ||
+                (self.getType().is(EntityTypeTags.BURN_IN_DAYLIGHT)) && self.level().environmentAttributes().getValue(EnvironmentAttributes.MONSTERS_BURN, self.position());
 
         if (!burnsInSun) return false;
 

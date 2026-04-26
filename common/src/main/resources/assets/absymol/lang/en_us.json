@@ -1,9 +1,0 @@
-{
-  "item.absymol.hymn_of_aten": "Hymns of Aten",
-  "block.absymol.bookshelf_of_hymns": "Bookshelf of Hymns",
-  "block.absymol.inflammable_sycamore_planks": "Inflammable Sycamore Planks",
-  "enchantment.absymol.photosynthesis": "Photosynthesis",
-  "tag.item.absymol.inflammable_planks": "Imflammable Planks",
-  "tag.item.absymol.enchantable.photosynthesis_items": "Photosynthesizable Items",
-  "death.message.absymol.unfortunate": "possibly disadvantaged with photosynthesis level {}"
-}

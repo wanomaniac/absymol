@@ -1,0 +1,13 @@
+{
+  "item.abysmol.hymn_of_aten": "Hymns of Aten",
+  "block.abysmol.bookshelf_of_hymns": "Bookshelf of Hymns",
+  "block.abysmol.inflammable_sycamore_planks": "Inflammable Sycamore Planks",
+  "enchantment.abysmol.photosynthesis": "Photosynthesis",
+  "tag.item.abysmol.inflammable_planks": "Imflammable Planks",
+  "tag.item.abysmol.enchantable.photosynthesis_items": "Photosynthesizable Items",
+  "death.message.abysmol.unfortunate": "possibly disadvantaged with photosynthesis level {}",
+  "abysmol.network.version_mismatch": "[%s] Connection denied: Version mismatch! Server: %s, Client: %s",
+  "abysmol.network.handshake_exception": "[%s] Connection error: Handshake encoding error.",
+  "abysmol.network.invalid_client": "Connection denied: This server runs with the %s mod, you do not have it! Please install it!",
+  "abysmol.network.invalid_server": "[%s] Connection terminated: This server does not support the %1$s mod."
+}

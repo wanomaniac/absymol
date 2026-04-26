@@ -62,8 +62,6 @@ if (cache) {
     ext.fabric_loader_version = cache.fabric_loader_version
     ext.neoforge_version = cache.neoforge_version
     ext.neoforge_loader_version_range = cache.neoforge_loader_version_range
-    ext.forge_version = cache.forge_version
-    ext.forge_loader_version_range = cache.forge_loader_version_range
     ext.neo_form_version = cache.neo_form_version
     ext.parchment_minecraft = mcVersion
     ext.parchment_version = cache.parchment_version
@@ -114,17 +112,6 @@ if (cache) {
         ext.neoforge_loader_version_range = null;
     }
 
-    // ------------------------------ FORGE ------------------------------
-    def forgeMeta = fetchJson("https://files.minecraftforge.net/net/minecraftforge/forge/maven-metadata.json")
-    if(forgeMeta != null) {
-        def matchingList = forgeMeta[mcVersion] ?: []
-        ext.forge_version = matchingList.max().split("-")[1] ?: "UNKNOWN"
-        ext.forge_loader_version_range = "[${forge_version.split("\\.")[0]},)"
-    } else {
-        ext.forge_version = null;
-        ext.forge_loader_version_range = null;
-    }
-
     // ------------------------------ NEOFORM ------------------------------
     def neoformMeta = fetchXml("https://maven.neoforged.net/releases/net/neoforged/neoform/maven-metadata.xml")
     if(neoformMeta != null){
@@ -142,8 +129,6 @@ if (cache) {
             fabric_loader_version: ext.fabric_loader_version,
             neoforge_version: ext.neoforge_version,
             neoforge_loader_version_range: ext.neoforge_loader_version_range,
-            forge_version: ext.forge_version,
-            forge_loader_version_range: ext.forge_loader_version_range,
             neo_form_version: ext.neo_form_version,
             parchment_version: ext.parchment_version,
     ])
@@ -153,6 +138,5 @@ ext.minecraft_version_range = VersionUtil.getVersionsFromDirectory(project.rootD
 println("Supported Minecraft Versions: $ext.minecraft_version_range")
 println("Fabric: $ext.fabric_version | Fabric Loader: $ext.fabric_loader_version")
 println("NeoForge: $ext.neoforge_version | NeoForge Loader Range: $ext.neoforge_loader_version_range")
-println("Forge: $ext.forge_version | Forge Loader Range: $ext.forge_loader_version_range")
 println("NeoForm: $ext.neo_form_version")
 println("Parchment Version: $ext.parchment_version")

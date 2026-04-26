@@ -1,0 +1,57 @@
+{
+  "required": true,
+  "package": "com.wano.abysmol.mixin",
+  "compatibilityLevel": "JAVA_18",
+  "client": [
+    "Client.ClientLoginMixin",
+    "Client.Graphics.ARGBMixin",
+    "Client.Graphics.NativeImageMixin",
+    "Client.Graphics.NormalLogoTexture",
+    "Client.Graphics.PreparedTextBuilderMixin",
+    "Client.Graphics.RenderPipelineBuilderAccessor",
+    "Client.Graphics.RenderPipelinesAccessor",
+    "Client.Graphics.RenderPipelinesInjector",
+    "Client.Graphics.gui.GuiGraphicsMixin",
+    "Client.Graphics.gui.GuiMixin",
+    "Client.Graphics.gui.GuiRendererMixin",
+    "Client.Graphics.gui.LoadingOverlayMixin",
+    "Client.Graphics.gui.RecipeToastMixin",
+    "Client.Graphics.gui.menus.AbstractContainerMixin",
+    "Client.Graphics.gui.menus.BookEditScreenMixin",
+    "Client.Graphics.gui.menus.BookSignScreenMixin",
+    "Client.Graphics.gui.menus.ClientTextTooltipMixin",
+    "Client.Graphics.gui.menus.ConnectScreenMixin",
+    "Client.Graphics.gui.menus.CreativeModeLabelMixin",
+    "Client.Graphics.gui.menus.EditBoxMixin",
+    "Client.Graphics.gui.menus.LevelLoadingMixin",
+    "Client.Graphics.gui.menus.LoadingDotsServerListMixin",
+    "Client.Graphics.gui.menus.NetworkServerSelectionEntryMixin",
+    "Client.Graphics.gui.menus.OnlineServerSelectionEntryMixin",
+    "Client.Graphics.gui.menus.PlainTextButtonMixin",
+    "Client.Graphics.gui.menus.RecipeBookComponentMixin",
+    "Client.Graphics.gui.menus.RenderingTextMixin",
+    "Client.Graphics.gui.menus.TitleScreenMixin",
+    "Client.Graphics.renderers.CubeMapTextureMixin",
+    "Client.Graphics.renderers.GameRendererMixin",
+    "Client.Graphics.renderers.mobs.photosynthesis.LivingEntityRenderStateSolarMixin",
+    "Client.Graphics.renderers.mobs.photosynthesis.SolarEnhancementInitalizer",
+    "Client.Sound.ChannelMixin"
+  ],
+  "mixins": [
+    "IdentifierMixin",
+    "Resources.DeveloperReloadMixin",
+    "ServerLogic.ServerLoginMixin",
+    "ServerLogic.ServerPingMixin",
+    "ServerLogic.SpawnTime",
+    "ServerLogic.photosynthesis.EntityBurnLogicMixin",
+    "ServerLogic.photosynthesis.MobInjectionMixin",
+    "ServerLogic.photosynthesis.MonsterLogicMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "priority": -1
+}

@@ -8,7 +8,7 @@
 		"wanomaniac"
 	],
 	"license": "CC0-1.0",
-	"icon": "assets/absymol/icon.png",
+	"icon": "assets/abysmol/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -27,5 +27,8 @@
     "fabric-api": "*",
     "minecraft": "~${minecraft_version}",
     "java": ">=${java_version}"
-  }
+  },
+	"suggests": {
+		"sodium": "*"
+	}
 }

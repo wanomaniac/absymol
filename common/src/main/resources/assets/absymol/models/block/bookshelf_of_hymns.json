@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "absymol:block/inflammable_sycamore_planks",
-    "side": "absymol:block/bookshelf_of_hymns"
-  }
-}

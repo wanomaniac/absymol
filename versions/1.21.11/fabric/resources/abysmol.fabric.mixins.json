@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.wano.abysmol.mixin",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "ServerLogic.photosynthesis.LivingEntityPhotosynthesisLogicMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "priority": -1
+}

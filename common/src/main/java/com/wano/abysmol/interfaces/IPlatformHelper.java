@@ -10,7 +10,25 @@ public interface IPlatformHelper {
      */
     String getPlatformName();
 
+    /**
+     * @return Gets the version of the platform loader.
+     */
     String getPlatformVersion();
+
+    /**
+     * Gets the version of the mod.
+     * @return Gets the version of the mod.
+     */
+    String getModVersion();
+
+    /**
+     * Gets the name of the mod
+     * @return The name of the mod
+     */
+    String getModName();
+
+    boolean isClient();
+    boolean IsServer();
 
     /**
      * Check if the game is currently in a development environment.

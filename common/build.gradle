@@ -28,6 +28,9 @@ if(neo_form_version != null) {
     return
 }
 
+Attribute<Object> mappingsAttribute = Attribute.of("net.minecraft.mappings", String)
+
+
 dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
     // fabric and neoforge both bundle mixinextras, so it is safe to use it in common
